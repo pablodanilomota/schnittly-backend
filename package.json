@@ -1,0 +1,7 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Pablo Danilo <pablodanilo75321@gmail.com>",
+  "license": "MIT"
+}

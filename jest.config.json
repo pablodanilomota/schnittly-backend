@@ -1,0 +1,23 @@
+{
+  "transform": {
+    ".(ts)": "ts-jest"
+  },
+  "moduleNameMapper": {
+    "^~(.*)$": "<rootDir>/src/$1",
+    "^test(.*)$": "<rootDir>/__tests__/$1"
+  },
+  "preset": "ts-jest",
+  "testMatch": ["**/__tests__/**/*test.ts?(x)"],
+  "modulePathIgnorePatterns": ["<rootDir>/__tests__/helpers"],
+  "collectCoverageFrom": ["src/**/*.ts"],
+  "reporters": [
+    "default",
+    [
+      "./node_modules/jest-html-reporter",
+      {
+        "pageTitle": "Schnittly",
+        "outputPath": "coverage/index.html"
+      }
+    ]
+  ]
+}

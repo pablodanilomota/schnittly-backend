@@ -5,8 +5,10 @@
     "jest": true
   },
   "extends": [
+    "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "prettier/@typescript-eslint",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:prettier/recommended",
     "standard"
   ],
   "globals": {
@@ -18,9 +20,10 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["@typescript-eslint", "prettier"],
   "rules": {
     "generator-star-spacing": "off",
+    "@typescript-eslint/no-var-requires": "off",
     "yield-star-spacing": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/interface-name-prefix": "off",

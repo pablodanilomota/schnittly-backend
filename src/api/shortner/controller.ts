@@ -36,7 +36,7 @@ export class ShortnerController {
 
       return response
     } catch ({ message }) {
-      return console.log(message)
+      return response.status(500).json('Url not found')
     }
   }
 }

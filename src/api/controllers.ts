@@ -1,3 +1,4 @@
 import { ShortnerController } from './shortner/controller'
+import { HealthCheckController } from './health-check/controller'
 
-export default [ShortnerController]
+export default [ShortnerController, HealthCheckController]

@@ -65,7 +65,7 @@ export const findOne = async (filter: FilterQuery<UrlDocument>) => {
   /**
    * Log.
    */
-  logger.info(`Url encontrada: ${objectToJSON(foundUrl)}`)
+  logger.info(`Url encontrada: ${objectToJSON(foundUrl.url)}`)
 
   return foundUrl.url
 }

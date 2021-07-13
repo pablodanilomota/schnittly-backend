@@ -1,11 +1,12 @@
+import { Response } from 'express'
 import {
+  Res,
   Get,
   Body,
   Post,
   Params,
   OnUndefined,
-  JsonController,
-  Res
+  JsonController
 } from 'routing-controllers'
 
 import { findOne, save } from './service'
@@ -24,17 +25,18 @@ export class ShortnerController {
 
   @Get('/:hash')
   @OnUndefined(204)
-  async getUrl(@Params() filter: { hash: string }, @Res() response: any) {
+  async getUrl(@Params() filter: { hash: string }, @Res() response: Response) {
     try {
       /**
        * Get url.
        */
       const foundUrl = await findOne(filter)
 
-      response.setHeader('Content-Type', 'json/application')
-      return await response.redirect(foundUrl)
-    } catch (error) {
-      console.log(error)
+      response.redirect(302, foundUrl)
+
+      return response
+    } catch ({ message }) {
+      return console.log(message)
     }
   }
 }

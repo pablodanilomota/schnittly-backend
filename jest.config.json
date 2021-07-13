@@ -9,7 +9,6 @@
   "preset": "ts-jest",
   "testMatch": ["**/__tests__/**/*test.ts?(x)"],
   "modulePathIgnorePatterns": ["<rootDir>/__tests__/helpers"],
-  "collectCoverageFrom": ["src/**/*.ts"],
   "reporters": [
     "default",
     [
@@ -19,5 +18,26 @@
         "outputPath": "coverage/index.html"
       }
     ]
+  ],
+
+  "collectCoverageFrom": [
+    "!<rootDir>/src/app.ts",
+    "!<rootDir>/src/lib/**",
+    "!<rootDir>/coverage/**",
+    "!<rootDir>/src/index.ts",
+    "!<rootDir>/src/config/*",
+    "!<rootDir>/__tests__/**",
+    "!<rootDir>/package.json",
+    "!<rootDir>/src/server.ts",
+    "!<rootDir>/src/common/**",
+    "!<rootDir>/src/entity/**",
+    "!<rootDir>/src/models/**",
+    "!<rootDir>/tsconfig.json",
+    "!<rootDir>/.eslintrc.json",
+    "!<rootDir>/jest.config.json",
+    "!<rootDir>/src/middlewares/*",
+    "!<rootDir>/commitlint.config.js",
+    "!<rootDir>/src/config-aliases.ts",
+    "!<rootDir>/src/api/controllers.ts"
   ]
 }

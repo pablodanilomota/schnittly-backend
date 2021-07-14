@@ -10,4 +10,12 @@ describe('[Unitário] Parse de objeto para JSON', () => {
 
     expect('{"teste":"teste"}').toEqual(parsedData)
   })
+
+  test('Deve retornar um objeto vazio', () => {
+    const objectToParse = {}
+
+    const parsedData = objectToJSON(objectToParse)
+
+    expect('{}').toEqual(parsedData)
+  })
 })

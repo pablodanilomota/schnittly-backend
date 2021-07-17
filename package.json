@@ -8,6 +8,7 @@
     "dev": "cross-env NODE_ENV=dev nodemon src/index.ts",
     "lint": "eslint src --ext .ts && tsc --noemit",
     "test": "NODE_ENV=test jest --runInBand",
+    "start": "node src/index.js",
     "build": "BABEL_ENV=build NODE_ENV=production babel src --extensions \".ts\" --out-dir dist --source-maps --copy-files --no-copy-ignored --delete-dir-on-start --no-comments",
     "test:ci": "NODE_ENV=test jest --runInBand --bail --coverage",
     "test:e2e": "NODE_ENV=test jest e2e --runInBand --verbose",

@@ -12,7 +12,7 @@ import {
 import { findOne, save } from './service'
 import { ShortnerRequest } from './requests/shortner-request'
 
-@JsonController('/shortner')
+@JsonController('/short')
 export class ShortnerController {
   @Post('/')
   @OnUndefined(204)

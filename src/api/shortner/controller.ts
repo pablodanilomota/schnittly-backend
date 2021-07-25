@@ -32,7 +32,17 @@ export class ShortnerController {
        */
       const foundUrl = await findOne(filter)
 
-      response.redirect(302, foundUrl)
+      /**
+       * Protocol verification.
+       */
+      const protocolVerificarion = foundUrl.includes('http')
+
+      /**
+       * Redirect.
+       */
+      const url = protocolVerificarion ? foundUrl : `http://${foundUrl}`
+
+      response.redirect(302, url)
 
       return response
     } catch ({ message }) {

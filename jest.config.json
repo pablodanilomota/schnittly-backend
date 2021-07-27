@@ -21,6 +21,7 @@
   ],
 
   "collectCoverageFrom": [
+    "!<rootDir>/dist/**",
     "!<rootDir>/src/app.ts",
     "!<rootDir>/src/lib/**",
     "!<rootDir>/coverage/**",
@@ -35,6 +36,7 @@
     "!<rootDir>/tsconfig.json",
     "!<rootDir>/.eslintrc.json",
     "!<rootDir>/jest.config.json",
+    "!<rootDir>/babel.config.js",
     "!<rootDir>/src/middlewares/*",
     "!<rootDir>/commitlint.config.js",
     "!<rootDir>/src/config-aliases.ts",

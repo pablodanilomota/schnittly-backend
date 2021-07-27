@@ -45,7 +45,12 @@ export const save = async (shortnerRequest: ShortnerRequest) => {
    */
   logger.info(`saved url: ${objectToJSON(savedUrl)}`)
 
-  return `sch-ly.herokuapp.com/short/${savedUrl.hash}`
+  /**
+   * Base url.
+   */
+  const baseURL = 'sch-ly.herokuapp.com'
+
+  return `${baseURL}/short/${savedUrl.hash}`
 }
 
 /**

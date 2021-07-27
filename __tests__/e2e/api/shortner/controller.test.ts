@@ -17,7 +17,7 @@ describe('[E2E] - Encurtador de url', () => {
      * Create hash.
      */
     const response = await request()
-      .post('/shortner/')
+      .post('/short/')
       .send({ url: 'http://google.com.br' })
 
     /**
@@ -36,14 +36,35 @@ describe('[E2E] - Encurtador de url', () => {
      * Create hash.
      */
     const responsePost = await request()
-      .post('/shortner/')
+      .post('/short/')
       .send({ url: 'http://google.com.br' })
+
+    const hash = responsePost.body.split('/').reverse()[0]
 
     /**
      * Get shortned url.
      */
-    const responseGet = await request().get(`/shortner/${responsePost.body}`)
+    const responseGet = await request().get(`/short/${hash}`)
+    /**
+     * Expected status.
+     */
+    expect(responseGet.status).toEqual(302)
+  })
 
+  test('Deve buscar uma url a partir de um hash e adicionar http', async () => {
+    /**
+     * Create hash.
+     */
+    const responsePost = await request()
+      .post('/short/')
+      .send({ url: 'google.com.br' })
+
+    const hash = responsePost.body.split('/').reverse()[0]
+
+    /**
+     * Get shortned url.
+     */
+    const responseGet = await request().get(`/short/${hash}`)
     /**
      * Expected status.
      */
@@ -54,7 +75,7 @@ describe('[E2E] - Encurtador de url', () => {
     /**
      * Get shortned url.
      */
-    const response = await request().get('/shortner/123456')
+    const response = await request().get('/short/123456')
 
     /**
      * Expected status.

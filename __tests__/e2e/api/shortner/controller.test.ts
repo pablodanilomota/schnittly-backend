@@ -59,12 +59,10 @@ describe('[E2E] - Encurtador de url', () => {
       .post('/short/')
       .send({ url: 'google.com.br' })
 
-    const hash = responsePost.body.split('/').reverse()[0]
-
     /**
      * Get shortned url.
      */
-    const responseGet = await request().get(`/short/${hash}`)
+    const responseGet = await request().get(`/short/${responsePost.body}`)
     /**
      * Expected status.
      */

@@ -1,9 +1,10 @@
-import { IsString } from 'class-validator'
+import { IsString, IsUrl } from 'class-validator'
 
 /**
  * Request to short the url.
  */
 export class ShortnerRequest {
+  @IsUrl()
   @IsString()
   url: string
 }

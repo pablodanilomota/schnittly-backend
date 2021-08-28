@@ -2,6 +2,7 @@ import { FilterQuery } from 'mongoose'
 
 import { logger } from '~/common/logger'
 import { objectToJSON } from '~/common/object'
+import { NotFoundError } from 'routing-controllers'
 import { ShortnerRequest } from './requests/shortner-request'
 import { Url, UrlDocument } from '~/models/url'
 
@@ -60,7 +61,12 @@ export const findOne = async (filter: FilterQuery<UrlDocument>) => {
   /**
    * Find url.
    */
-  const foundUrl = await Url.findOne(filter).lean<UrlDocument>()
+  const foundUrl = await Url.findOne(filter).lean()
+
+  /**
+   * If url not found, throw an error.
+   */
+  if (!foundUrl) throw new NotFoundError('Url not found')
 
   /**
    * Log.

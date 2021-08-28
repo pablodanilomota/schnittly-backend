@@ -16,7 +16,7 @@ import { ShortnerRequest } from './requests/shortner-request'
 export class ShortnerController {
   @Post('/')
   @OnUndefined(204)
-  async save(@Body() shortnerRequest: ShortnerRequest) {
+  save(@Body() shortnerRequest: ShortnerRequest) {
     /**
      * Save url.
      */
@@ -42,7 +42,7 @@ export class ShortnerController {
        */
       const url = protocolVerificarion ? foundUrl : `http://${foundUrl}`
 
-      response.redirect(302, url)
+      response.redirect(url)
 
       return response
     } catch ({ message }) {
